@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import CVForm from './components/CVForm';
+import Education from './components/Education';
 
 function App() {
   console.log("kappi");
@@ -10,7 +11,6 @@ function App() {
   const [page,setPage] = useState(false);
   function handleClick(event){
     setPage(true);
-    console.log(data);
   }
   return (
     <div className="App">
@@ -27,6 +27,7 @@ function App() {
           <button id="edit-button" onClick={handleClick}>edit</button>
           <h1>intro</h1>
           <h1>edu</h1>
+          <Education data={data}/>
           <h1>exp</h1>
         </div>  
       }
