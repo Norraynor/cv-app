@@ -1,0 +1,22 @@
+.name{
+    font-size: 2rem;
+    text-align: left;
+    padding-left: 10px;
+    margin: 5px 10px;
+}
+.email-div, .phone-div{
+    display: flex;
+    
+}
+.intro-icon{
+    margin: auto 0;
+    padding-right: 5px;
+    padding-left: 10px;
+    margin: 5px 10px;
+}
+h5{
+    margin: 5px 0;
+}
+#introduction{
+    margin: 20px 0;
+}

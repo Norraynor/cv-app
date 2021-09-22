@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 //import './CVForm.css'; should have its own css
 
 function CVForm(props){
@@ -15,9 +15,12 @@ function CVForm(props){
         "company-date-from":0,
         "company-date-to":0
     });
-    if(props.cvData && !Object.keys(props.cvData)<1){
-        setData(props.cvData);
-    }
+    useEffect(()=>{
+        if(props.cvData && !Object.keys(props.cvData)<1){
+            setData(props.cvData);
+            console.log(props.cvData);
+        }
+    },[props.cvData])
 
     function handleSubmit(event){
         props.sendData(data);
@@ -42,21 +45,21 @@ function CVForm(props){
                     <label htmlFor="name">Enter name</label>
                     <input
                         onChange={handleChange}
-                        defaultValue={"add defaultValue"}
+                        defaultValue={props.cvData?props.cvData.name:""}
                         type="text"
                         id="name"
                     />
                     <label htmlFor="email">Enter email</label>
                     <input
                         onChange={handleChange}
-                        defaultValue={"add defaultValue"}
+                        defaultValue={props.cvData?props.cvData.email:""}
                         type="email"
                         id="email"
                     />
                     <label htmlFor="phone">Enter phone(9 numbers)</label>
                     <input
                         onChange={handleChange}
-                        defaultValue={"add defaultValue"}
+                        defaultValue={props.cvData?props.cvData.phone:""}
                         type="tel"
                         id="phone"
                         pattern = "[0-9]{9}"
@@ -67,14 +70,14 @@ function CVForm(props){
                     <label htmlFor="school">Enter school name</label>
                     <input
                         onChange={handleChange}
-                        defaultValue={"add defaultValue"}
+                        defaultValue={props.cvData?props.cvData.school:""}
                         type="text"
                         id="school"
                     />
                     <label htmlFor="study-title">Enter title of study</label>
                     <input
                         onChange={handleChange}
-                        defaultValue={"add defaultValue"}
+                        defaultValue={props.cvData?props.cvData["study-title"]:""}
                         type="text"
                         id="study-title"
                     />
@@ -83,14 +86,14 @@ function CVForm(props){
                         <label htmlFor="school-date-from">from</label>
                         <input
                             onChange={handleChange}
-                            defaultValue={"add defaultValue"}
+                            defaultValue={props.cvData?props.cvData["school-date-from"]:""}
                             type="date"
                             id="school-date-from"
                         />
                         <label htmlFor="school-date-to">to</label>
                         <input
                             onChange={handleChange}
-                            defaultValue={"add defaultValue"}
+                            defaultValue={props.cvData?props.cvData["school-date-to"]:""}
                             type="date"
                             id="school-date-to"
                         />
@@ -102,14 +105,14 @@ function CVForm(props){
                     <label htmlFor="company-name">Enter company name</label>
                     <input
                         onChange={handleChange}
-                        defaultValue={"add defaultValue"}
+                        defaultValue={props.cvData?props.cvData["company-name"]:""}
                         type="text"
                         id="company-name"
                     />
                     <label htmlFor="position-name">Enter position name</label>
                     <input
                         onChange={handleChange}
-                        defaultValue={"add defaultValue"}
+                        defaultValue={props.cvData?props.cvData["position-name"]:""}
                         type="text"
                         id="position-name"
                     />
@@ -118,14 +121,14 @@ function CVForm(props){
                         <label htmlFor="company-date-from">from</label>
                         <input
                             onChange={handleChange}
-                            defaultValue={"add defaultValue"}
+                            defaultValue={props.cvData?props.cvData["company-date-from"]:""}
                             type="date"
                             id="company-date-from"
                         />
                         <label htmlFor="company-date-to">to</label>
                         <input
                             onChange={handleChange}
-                            defaultValue={"add defaultValue"}
+                            defaultValue={props.cvData?props.cvData["company-date-to"]:""}
                             type="date"
                             id="company-date-to"
                         />
