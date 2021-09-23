@@ -1,0 +1,29 @@
+#cv-form{
+    width:600px;
+    margin: 0 auto;
+}
+label{
+    display: block;
+}
+input{
+    margin-bottom: 10px;
+    width: 100%;
+}
+.dates-input{
+    display: flex;
+}
+.dates-input div{
+    margin-right: 50px;
+}
+#submit{
+    margin: 10px;
+    background-color:lightgreen;
+}
+#cancel{
+    margin: 10px;
+    background-color:red;
+
+}
+.buttons{
+    text-align: center;
+}

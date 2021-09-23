@@ -34,20 +34,15 @@ function App() {
         :Object.keys(data)<1
         ?<div>
           <p>no elements - create new cv</p>
-          <button id="create-new-cv" onClick={(handleClick)}>create new CV</button>
+          <button className="main-button" id="create-new-cv" onClick={(handleClick)}>create new CV</button>
         </div>
         :<div>
-          <button id="edit-button" onClick={handleClick}>Edit CV</button>          
+          <button className="main-button" id="edit-button" onClick={handleClick}>Edit CV</button>          
           <Introduction data={data}/>          
           <Education data={data}/>          
           <Experience data={data}/>
         </div>  
       }
-
-      <p>start</p>
-      
-      
-
     </div>
   );
 }

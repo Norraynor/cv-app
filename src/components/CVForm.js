@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-//import './CVForm.css'; should have its own css
+import '../styles/CVForm.css';
 
 function CVForm(props){
     const [data,setData] = useState({
@@ -40,76 +40,82 @@ function CVForm(props){
     return(
         <div id="cv-form">
             <form onSubmit={handleSubmit}>
+                <h4>General</h4>
                 <div id="general">
-                    <p>general info</p>
-                    <label htmlFor="name">Enter name</label>
+                    <label htmlFor="name">Full Name</label>
                     <input
                         onChange={handleChange}
                         defaultValue={props.cvData?props.cvData.name:""}
                         type="text"
                         id="name"
                     />
-                    <label htmlFor="email">Enter email</label>
+                    <label htmlFor="email">Email</label>
                     <input
                         onChange={handleChange}
                         defaultValue={props.cvData?props.cvData.email:""}
+                        placeholder="example@example.com"
                         type="email"
                         id="email"
                     />
-                    <label htmlFor="phone">Enter phone(9 numbers)</label>
+                    <label htmlFor="phone">Phone</label>
                     <input
                         onChange={handleChange}
                         defaultValue={props.cvData?props.cvData.phone:""}
+                        placeholder="123 456 789"
                         type="tel"
                         id="phone"
                         pattern = "[0-9]{9}"
                     />
                 </div>
+                <h4>Education</h4>
                 <div id="education">
-                    <p>education info</p>
-                    <label htmlFor="school">Enter school name</label>
+                    <label htmlFor="school">School Name</label>
                     <input
                         onChange={handleChange}
                         defaultValue={props.cvData?props.cvData.school:""}
                         type="text"
                         id="school"
                     />
-                    <label htmlFor="study-title">Enter title of study</label>
+                    <label htmlFor="study-title">Title of study</label>
                     <input
                         onChange={handleChange}
                         defaultValue={props.cvData?props.cvData["study-title"]:""}
                         type="text"
                         id="study-title"
                     />
-                    <div>
-                        <p>Enter date of study</p>
-                        <label htmlFor="school-date-from">from</label>
-                        <input
-                            onChange={handleChange}
-                            defaultValue={props.cvData?props.cvData["school-date-from"]:""}
-                            type="date"
-                            id="school-date-from"
-                        />
-                        <label htmlFor="school-date-to">to</label>
-                        <input
-                            onChange={handleChange}
-                            defaultValue={props.cvData?props.cvData["school-date-to"]:""}
-                            type="date"
-                            id="school-date-to"
-                        />
+                    <p>Date of study</p>
+                    <div className="dates-input">
+                        <div>
+                            <label htmlFor="school-date-from">from</label>
+                            <input
+                                onChange={handleChange}
+                                defaultValue={props.cvData?props.cvData["school-date-from"]:""}
+                                type="date"
+                                id="school-date-from"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="school-date-to">to</label>
+                            <input
+                                onChange={handleChange}
+                                defaultValue={props.cvData?props.cvData["school-date-to"]:""}
+                                type="date"
+                                id="school-date-to"
+                            />
+                        </div>                        
                     </div>
                     
                 </div>
+                <h4>Experience</h4>
                 <div id="experience">
-                    <p>experience info</p>
-                    <label htmlFor="company-name">Enter company name</label>
+                    <label htmlFor="company-name">Company Name</label>
                     <input
                         onChange={handleChange}
                         defaultValue={props.cvData?props.cvData["company-name"]:""}
                         type="text"
                         id="company-name"
                     />
-                    <label htmlFor="position-name">Enter position name</label>
+                    <label htmlFor="position-name">Position Name</label>
                     <input
                         onChange={handleChange}
                         defaultValue={props.cvData?props.cvData["position-name"]:""}
@@ -117,27 +123,35 @@ function CVForm(props){
                         id="position-name"
                     />
                     <div>
-                        <p>Enter date employment</p>
-                        <label htmlFor="company-date-from">from</label>
-                        <input
-                            onChange={handleChange}
-                            defaultValue={props.cvData?props.cvData["company-date-from"]:""}
-                            type="date"
-                            id="company-date-from"
-                        />
-                        <label htmlFor="company-date-to">to</label>
-                        <input
-                            onChange={handleChange}
-                            defaultValue={props.cvData?props.cvData["company-date-to"]:""}
-                            type="date"
-                            id="company-date-to"
-                        />
+                        <p>Date of employment</p>
+                        <div className="dates-input">
+                            <div>
+                                <label htmlFor="company-date-from">from</label>
+                                <input
+                                    onChange={handleChange}
+                                    defaultValue={props.cvData?props.cvData["company-date-from"]:""}
+                                    type="date"
+                                    id="company-date-from"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="company-date-to">to</label>
+                                <input
+                                    onChange={handleChange}
+                                    defaultValue={props.cvData?props.cvData["company-date-to"]:""}
+                                    type="date"
+                                    id="company-date-to"
+                                />
+                            </div>                            
+                        </div>
                     </div>
                     
                 </div>
+                <div className="buttons">
+                    <button id="submit" type="submit">Add CV</button>
+                    <button id="cancel" onClick={handleCancel}>Cancel</button>
+                </div>
                 
-                <button type="submit">Add CV</button>
-                <button onClick={handleCancel}>Cancel</button>
 
             </form>
         </div>
